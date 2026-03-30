@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Spa - 高端美容SPA</title>
+    
+    <!-- Google Fonts: Lora + Raleway (来自设计系统) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config: 应用设计系统变量 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563EB',      // Primary Blue
+                        secondary: '#3B82F6',    // Secondary Blue
+                        cta: '#F97316',          // CTA Orange
+                        background: '#F8FAFC',    // Background
+                        text: '#1E293B',         // Text
+                        'soft-pink': '#E8B4B8',   // Soft Pink (来自Notes)
+                        'sage-green': '#A8D5BA',  // Sage Green (来自Notes)
+                        'gold': '#D4AF37',        // Gold (来自Notes)
+                    },
+                    fontFamily: {
+                        heading: ['Lora', 'serif'],
+                        body: ['Raleway', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 2px 8px rgba(37, 99, 235, 0.1)',
+                        'soft-lg': '0 4px 16px rgba(37, 99, 235, 0.15)',
+                        'soft-xl': '0 8px 24px rgba(37, 99, 235, 0.2)',
+                    },
+                    transitionDuration: {
+                        '200': '200ms',
+                        '300': '300ms',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* 全局样式 */
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #F8FAFC;
+            color: #1E293B;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lora', serif;
+        }
+        
+        /* 柔和阴影效果 (Soft UI Evolution) */
+        .card {
+            transition: all 200ms ease;
+            cursor: pointer;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.2);
+        }
+        
+        /* 按钮效果 */
+        .btn-primary {
+            transition: all 200ms ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            transition: all 200ms ease;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #F8FAFC;
+            transform: translateY(-1px);
+        }
+        
+        /* 焦点状态 (WCAG AA) */
+        button:focus, a:focus, input:focus {
+            outline: 3px solid #2563EB;
+            outline-offset: 2px;
+        }
+        
+        /* 减少动画 (prefers-reduced-motion) */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* 响应式断点 */
+        @media (max-width: 375px) {
+            .hero-section {
+                padding: 2rem 1rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .hero-section {
+                padding: 4rem 2rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .hero-section {
+                padding: 6rem 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-soft z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="font-heading text-2xl font-bold text-primary">Serenity</span>
+                    <span class="font-heading text-2xl font-light text-soft-pink ml-1">Spa</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="text-text hover:text-primary transition-colors duration-200">服务</a>
+                    <a href="#about" class="text-text hover:text-primary transition-colors duration-200">关于</a>
+                    <a href="#testimonials" class="text-text hover:text-primary transition-colors duration-200">评价</a>
+                    <a href="#contact" class="text-text hover:text-primary transition-colors duration-200">联系</a>
+                </div>
+                <button class="btn-primary bg-cta text-white px-6 py-2 rounded-lg font-semibold">
+                    立即预约
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section (Hero-Centric Design) -->
+    <section class="hero-section min-h-screen flex items-center justify-center bg-gradient-to-br from-soft-pink/20 via-background to-sage-green/20 pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-text mb-6">
+                释放内心的宁静
+            </h1>
+            <p class="font-body text-lg sm:text-xl md:text-2xl text-text/80 mb-8 max-w-3xl mx-auto">
+                在Serenity Spa，我们提供顶级的美容护理服务，让您在宁静的环境中焕发新生
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="btn-primary bg-cta text-white px-8 py-4 rounded-lg font-semibold text-lg">
+                    预约体验
+                </button>
+                <button class="btn-secondary border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold text-lg">
+                    了解更多
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="services" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-heading text-3xl sm:text-4xl font-bold text-text text-center mb-12">
+                我们的服务
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 服务卡片 1 -->
+                <div class="card bg-background rounded-xl p-8 shadow-soft">
+                    <div class="w-16 h-16 bg-soft-pink/20 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl font-semibold text-text mb-3">面部护理</h3>
+                    <p class="font-body text-text/70">深层清洁、保湿、抗衰老护理，让您的肌肤焕发光彩</p>
+                </div>
+                
+                <!-- 服务卡片 2 -->
+                <div class="card bg-background rounded-xl p-8 shadow-soft">
+                    <div class="w-16 h-16 bg-sage-green/20 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl font-semibold text-text mb-3">身体护理</h3>
+                    <p class="font-body text-text/70">全身按摩、身体磨砂、SPA护理，舒缓身心</p>
+                </div>
+                
+                <!-- 服务卡片 3 -->
+                <div class="card bg-background rounded-xl p-8 shadow-soft">
+                    <div class="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl font-semibold text-text mb-3">美容护理</h3>
+                    <p class="font-body text-text/70">美甲、美睫、美发，打造完美形象</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section (Social Proof) -->
+    <section id="testimonials" class="py-16 md:py-24 bg-gradient-to-br from-sage-green/10 via-background to-soft-pink/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-heading text-3xl sm:text-4xl font-bold text-text text-center mb-12">
+                客户评价
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 评价卡片 1 -->
+                <div class="card bg-white rounded-xl p-8 shadow-soft">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-soft-pink rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-semibold">L</span>
+                        </div>
+                        <div>
+                            <h4 class="font-heading font-semibold text-text">李女士</h4>
+                            <div class="flex text-gold">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="font-body text-text/80">"这是我体验过最好的SPA，环境优雅，服务专业，强烈推荐！"</p>
+                </div>
+                
+                <!-- 评价卡片 2 -->
+                <div class="card bg-white rounded-xl p-8 shadow-soft">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-sage-green rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-semibold">W</span>
+                        </div>
+                        <div>
+                            <h4 class="font-heading font-semibold text-text">王先生</h4>
+                            <div class="flex text-gold">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="font-body text-text/80">"面部护理效果显著，技师手法专业，下次还会再来。"</p>
+                </div>
+                
+                <!-- 评价卡片 3 -->
+                <div class="card bg-white rounded-xl p-8 shadow-soft">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-semibold">Z</span>
+                        </div>
+                        <div>
+                            <h4 class="font-heading font-semibold text-text">张女士</h4>
+                            <div class="flex text-gold">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="font-body text-text/80">"环境非常舒适，让人放松，服务周到，性价比很高。"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section id="contact" class="py-16 md:py-24 bg-primary">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white mb-6">
+                准备好焕发新生了吗？
+            </h2>
+            <p class="font-body text-lg text-white/90 mb-8">
+                立即预约，享受专业美容护理服务
+            </p>
+            <button class="btn-primary bg-cta text-white px-8 py-4 rounded-lg font-semibold text-lg">
+                预约您的体验
+            </button>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-text py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <span class="font-heading text-xl font-bold text-white">Serenity</span>
+                    <span class="font-heading text-xl font-light text-soft-pink ml-1">Spa</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-white/80 hover:text-white transition-colors duration-200">隐私政策</a>
+                    <a href="#" class="text-white/80 hover:text-white transition-colors duration-200">服务条款</a>
+                    <a href="#" class="text-white/80 hover:text-white transition-colors duration-200">联系我们</a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-white/60 text-sm">
+                © 2024 Serenity Spa. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
