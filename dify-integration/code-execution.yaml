@@ -1,0 +1,16 @@
+identity:
+  name: "ui_ux_pro_max_code"
+  author: "UI/UX Pro Max Team"
+  label:
+    en_US: "UI/UX Pro Max Code"
+    zh_Hans: "UI/UX Pro Max 代码执行"
+  description:
+    en_US: "Code execution node for UI/UX design intelligence. Execute Python scripts for design system generation, domain search, and stack guidelines."
+    zh_Hans: "UI/UX设计智能代码执行节点。执行Python脚本生成设计系统、域搜索和技术栈指南。"
+  icon: "🎨"
+  tags: ["design", "ui", "ux", "code-execution", "python"]
+
+supported_model_types: ["llm"]
+configurate_methods: ["no-configuration"]
+provider_credential_schema:
+  type: "none"

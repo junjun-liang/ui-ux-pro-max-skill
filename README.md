@@ -1,498 +1,484 @@
-# [UI UX Pro Max](https://uupm.cc)
- 
-<p align="center">
-  <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/releases"><img src="https://img.shields.io/github/v/release/nextlevelbuilder/ui-ux-pro-max-skill?style=for-the-badge&color=blue" alt="GitHub Release"></a>
-  <img src="https://img.shields.io/badge/reasoning_rules-161-green?style=for-the-badge" alt="161 Reasoning Rules">
-  <img src="https://img.shields.io/badge/UI_styles-67-purple?style=for-the-badge" alt="67 UI Styles">
-  <img src="https://img.shields.io/badge/python-3.x-yellow?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.x">
-  <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/LICENSE"><img src="https://img.shields.io/github/license/nextlevelbuilder/ui-ux-pro-max-skill?style=for-the-badge&color=green" alt="License"></a>
-</p>
+# UI/UX Pro Max - LangChain Agent
 
-<p align="center">
-  <a href="https://www.npmjs.com/package/uipro-cli"><img src="https://img.shields.io/npm/v/uipro-cli?style=flat-square&logo=npm&label=CLI" alt="npm"></a>
-  <a href="https://www.npmjs.com/package/uipro-cli"><img src="https://img.shields.io/npm/dm/uipro-cli?style=flat-square&label=downloads" alt="npm downloads"></a>
-  <a href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/stargazers"><img src="https://img.shields.io/github/stars/nextlevelbuilder/ui-ux-pro-max-skill?style=flat-square&logo=github" alt="GitHub stars"></a>
-  <a href="https://paypal.me/uiuxpromax"><img src="https://img.shields.io/badge/PayPal-Support%20Development-00457C?style=flat-square&logo=paypal&logoColor=white" alt="PayPal"></a>
-</p>
+## 📋 项目概述
 
-An AI skill that provides design intelligence for building professional UI/UX across multiple platforms and frameworks.
+本项目直接在ui-ux-pro-max-skill项目中使用LangChain框架创建智能UI/UX设计助手。
 
-<p align="center">
-  <a href="https://uupm.cc">
-    <img src="screenshots/website.png" alt="UI UX Pro Max" width="800">
-  </a>
-</p>
+### 功能特性
 
-<p align="center">
-  <b>If you find this useful, consider supporting the project:</b><br><br>
-  <a href="https://paypal.me/uiuxpromax"><img src="https://img.shields.io/badge/PayPal-Donate-00457C?style=for-the-badge&logo=paypal&logoColor=white" alt="PayPal Donate"></a>
-</p>
+- ✅ **智能代理**：自动选择和调用UI/UX Pro Max工具
+- ✅ **3个核心工具**：生成设计系统、搜索域、搜索技术栈指南
+- ✅ **记忆管理**：保存对话历史，支持上下文感知
+- ✅ **错误处理**：优雅处理工具调用错误
+- ✅ **交互式对话**：支持多轮对话
 
-<p align="center">
-  <i>Other projects</i><br>
-  <a href="https://nextlevelbuilder.io">NextLevelBuilder.io</a> | <a href="https://goclaw.sh">GoClaw.sh</a> | <a href="https://claudekit.cc">ClaudeKit.cc</a> | <a href="https://tose.sh">TOSE.sh</a>
-</p>
+---
 
-## What's New in v2.0
+## 🚀 快速开始
 
-### Intelligent Design System Generation
-
-The flagship feature of v2.0 is the **Design System Generator** - an AI-powered reasoning engine that analyzes your project requirements and generates a complete, tailored design system in seconds.
-
-```
-+----------------------------------------------------------------------------------------+
-|  TARGET: Serenity Spa - RECOMMENDED DESIGN SYSTEM                                      |
-+----------------------------------------------------------------------------------------+
-|                                                                                        |
-|  PATTERN: Hero-Centric + Social Proof                                                  |
-|     Conversion: Emotion-driven with trust elements                                     |
-|     CTA: Above fold, repeated after testimonials                                       |
-|     Sections:                                                                          |
-|       1. Hero                                                                          |
-|       2. Services                                                                      |
-|       3. Testimonials                                                                  |
-|       4. Booking                                                                       |
-|       5. Contact                                                                       |
-|                                                                                        |
-|  STYLE: Soft UI Evolution                                                              |
-|     Keywords: Soft shadows, subtle depth, calming, premium feel, organic shapes        |
-|     Best For: Wellness, beauty, lifestyle brands, premium services                     |
-|     Performance: Excellent | Accessibility: WCAG AA                                    |
-|                                                                                        |
-|  COLORS:                                                                               |
-|     Primary:    #E8B4B8 (Soft Pink)                                                    |
-|     Secondary:  #A8D5BA (Sage Green)                                                   |
-|     CTA:        #D4AF37 (Gold)                                                         |
-|     Background: #FFF5F5 (Warm White)                                                   |
-|     Text:       #2D3436 (Charcoal)                                                     |
-|     Notes: Calming palette with gold accents for luxury feel                           |
-|                                                                                        |
-|  TYPOGRAPHY: Cormorant Garamond / Montserrat                                           |
-|     Mood: Elegant, calming, sophisticated                                              |
-|     Best For: Luxury brands, wellness, beauty, editorial                               |
-|     Google Fonts: https://fonts.google.com/share?selection.family=...                  |
-|                                                                                        |
-|  KEY EFFECTS:                                                                          |
-|     Soft shadows + Smooth transitions (200-300ms) + Gentle hover states                |
-|                                                                                        |
-|  AVOID (Anti-patterns):                                                                |
-|     Bright neon colors + Harsh animations + Dark mode + AI purple/pink gradients       |
-|                                                                                        |
-|  PRE-DELIVERY CHECKLIST:                                                               |
-|     [ ] No emojis as icons (use SVG: Heroicons/Lucide)                                 |
-|     [ ] cursor-pointer on all clickable elements                                       |
-|     [ ] Hover states with smooth transitions (150-300ms)                               |
-|     [ ] Light mode: text contrast 4.5:1 minimum                                        |
-|     [ ] Focus states visible for keyboard nav                                          |
-|     [ ] prefers-reduced-motion respected                                               |
-|     [ ] Responsive: 375px, 768px, 1024px, 1440px                                       |
-|                                                                                        |
-+----------------------------------------------------------------------------------------+
-```
-
-### How Design System Generation Works
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  1. USER REQUEST                                                │
-│     "Build a landing page for my beauty spa"                    │
-└─────────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  2. MULTI-DOMAIN SEARCH (5 parallel searches)                   │
-│     • Product type matching (161 categories)                    │
-│     • Style recommendations (67 styles)                         │
-│     • Color palette selection (161 palettes)                    │
-│     • Landing page patterns (24 patterns)                       │
-│     • Typography pairing (57 font combinations)                 │
-└─────────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  3. REASONING ENGINE                                            │
-│     • Match product → UI category rules                         │
-│     • Apply style priorities (BM25 ranking)                     │
-│     • Filter anti-patterns for industry                         │
-│     • Process decision rules (JSON conditions)                  │
-└─────────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────────┐
-│  4. COMPLETE DESIGN SYSTEM OUTPUT                               │
-│     Pattern + Style + Colors + Typography + Effects             │
-│     + Anti-patterns to avoid + Pre-delivery checklist           │
-└─────────────────────────────────────────────────────────────────┘
-```
-
-### 161 Industry-Specific Reasoning Rules
-
-The reasoning engine includes specialized rules for:
-
-| Category | Examples |
-|----------|----------|
-| **Tech & SaaS** | SaaS, Micro SaaS, B2B Service, Developer Tool / IDE, AI/Chatbot Platform, Cybersecurity Platform |
-| **Finance** | Fintech/Crypto, Banking, Insurance, Personal Finance Tracker, Invoice & Billing Tool |
-| **Healthcare** | Medical Clinic, Pharmacy, Dental, Veterinary, Mental Health, Medication Reminder |
-| **E-commerce** | General, Luxury, Marketplace (P2P), Subscription Box, Food Delivery |
-| **Services** | Beauty/Spa, Restaurant, Hotel, Legal, Home Services, Booking & Appointment |
-| **Creative** | Portfolio, Agency, Photography, Gaming, Music Streaming, Photo/Video Editor |
-| **Lifestyle** | Habit Tracker, Recipe & Cooking, Meditation, Weather, Diary, Mood Tracker |
-| **Emerging Tech** | Web3/NFT, Spatial Computing, Quantum Computing, Autonomous Drone Fleet |
-
-Each rule includes:
-- **Recommended Pattern** - Landing page structure
-- **Style Priority** - Best matching UI styles
-- **Color Mood** - Industry-appropriate palettes
-- **Typography Mood** - Font personality matching
-- **Key Effects** - Animations and interactions
-- **Anti-Patterns** - What NOT to do (e.g., "AI purple/pink gradients" for banking)
-
-## Features
-
-- **67 UI Styles** - Glassmorphism, Claymorphism, Minimalism, Brutalism, Neumorphism, Bento Grid, Dark Mode, AI-Native UI, and more
-- **161 Color Palettes** - Industry-specific palettes aligned 1:1 with the 161 product types
-- **57 Font Pairings** - Curated typography combinations with Google Fonts imports
-- **25 Chart Types** - Recommendations for dashboards and analytics
-- **13 Tech Stacks** - React, Next.js, Astro, Vue, Nuxt.js, Nuxt UI, Svelte, SwiftUI, React Native, Flutter, HTML+Tailwind, shadcn/ui, Jetpack Compose
-- **99 UX Guidelines** - Best practices, anti-patterns, and accessibility rules
-- **161 Reasoning Rules** - Industry-specific design system generation (NEW in v2.0)
-
-### Available Styles (67)
-
-<details>
-<summary><b>General Styles (49)</b></summary>
-
-| # | Style | Best For |
-|---|-------|----------|
-| 1 | Minimalism & Swiss Style | Enterprise apps, dashboards, documentation |
-| 2 | Neumorphism | Health/wellness apps, meditation platforms |
-| 3 | Glassmorphism | Modern SaaS, financial dashboards |
-| 4 | Brutalism | Design portfolios, artistic projects |
-| 5 | 3D & Hyperrealism | Gaming, product showcase, immersive |
-| 6 | Vibrant & Block-based | Startups, creative agencies, gaming |
-| 7 | Dark Mode (OLED) | Night-mode apps, coding platforms |
-| 8 | Accessible & Ethical | Government, healthcare, education |
-| 9 | Claymorphism | Educational apps, children's apps, SaaS |
-| 10 | Aurora UI | Modern SaaS, creative agencies |
-| 11 | Retro-Futurism | Gaming, entertainment, music platforms |
-| 12 | Flat Design | Web apps, mobile apps, startup MVPs |
-| 13 | Skeuomorphism | Legacy apps, gaming, premium products |
-| 14 | Liquid Glass | Premium SaaS, high-end e-commerce |
-| 15 | Motion-Driven | Portfolio sites, storytelling platforms |
-| 16 | Micro-interactions | Mobile apps, touchscreen UIs |
-| 17 | Inclusive Design | Public services, education, healthcare |
-| 18 | Zero Interface | Voice assistants, AI platforms |
-| 19 | Soft UI Evolution | Modern enterprise apps, SaaS |
-| 20 | Neubrutalism | Gen Z brands, startups, Figma-style |
-| 21 | Bento Box Grid | Dashboards, product pages, portfolios |
-| 22 | Y2K Aesthetic | Fashion brands, music, Gen Z |
-| 23 | Cyberpunk UI | Gaming, tech products, crypto apps |
-| 24 | Organic Biophilic | Wellness apps, sustainability brands |
-| 25 | AI-Native UI | AI products, chatbots, copilots |
-| 26 | Memphis Design | Creative agencies, music, youth brands |
-| 27 | Vaporwave | Music platforms, gaming, portfolios |
-| 28 | Dimensional Layering | Dashboards, card layouts, modals |
-| 29 | Exaggerated Minimalism | Fashion, architecture, portfolios |
-| 30 | Kinetic Typography | Hero sections, marketing sites |
-| 31 | Parallax Storytelling | Brand storytelling, product launches |
-| 32 | Swiss Modernism 2.0 | Corporate sites, architecture, editorial |
-| 33 | HUD / Sci-Fi FUI | Sci-fi games, space tech, cybersecurity |
-| 34 | Pixel Art | Indie games, retro tools, creative |
-| 35 | Bento Grids | Product features, dashboards, personal |
-| 36 | Spatial UI (VisionOS) | Spatial computing apps, VR/AR |
-| 37 | E-Ink / Paper | Reading apps, digital newspapers |
-| 38 | Gen Z Chaos / Maximalism | Gen Z lifestyle, music artists |
-| 39 | Biomimetic / Organic 2.0 | Sustainability tech, biotech, health |
-| 40 | Anti-Polish / Raw Aesthetic | Creative portfolios, artist sites |
-| 41 | Tactile Digital / Deformable UI | Modern mobile apps, playful brands |
-| 42 | Nature Distilled | Wellness brands, sustainable products |
-| 43 | Interactive Cursor Design | Creative portfolios, interactive |
-| 44 | Voice-First Multimodal | Voice assistants, accessibility apps |
-| 45 | 3D Product Preview | E-commerce, furniture, fashion |
-| 46 | Gradient Mesh / Aurora Evolved | Hero sections, backgrounds, creative |
-| 47 | Editorial Grid / Magazine | News sites, blogs, magazines |
-| 48 | Chromatic Aberration / RGB Split | Music platforms, gaming, tech |
-| 49 | Vintage Analog / Retro Film | Photography, music/vinyl brands |
-
-</details>
-
-<details>
-<summary><b>Landing Page Styles (8)</b></summary>
-
-| # | Style | Best For |
-|---|-------|----------|
-| 1 | Hero-Centric Design | Products with strong visual identity |
-| 2 | Conversion-Optimized | Lead generation, sales pages |
-| 3 | Feature-Rich Showcase | SaaS, complex products |
-| 4 | Minimal & Direct | Simple products, apps |
-| 5 | Social Proof-Focused | Services, B2C products |
-| 6 | Interactive Product Demo | Software, tools |
-| 7 | Trust & Authority | B2B, enterprise, consulting |
-| 8 | Storytelling-Driven | Brands, agencies, nonprofits |
-
-</details>
-
-<details>
-<summary><b>BI/Analytics Dashboard Styles (10)</b></summary>
-
-| # | Style | Best For |
-|---|-------|----------|
-| 1 | Data-Dense Dashboard | Complex data analysis |
-| 2 | Heat Map & Heatmap Style | Geographic/behavior data |
-| 3 | Executive Dashboard | C-suite summaries |
-| 4 | Real-Time Monitoring | Operations, DevOps |
-| 5 | Drill-Down Analytics | Detailed exploration |
-| 6 | Comparative Analysis Dashboard | Side-by-side comparisons |
-| 7 | Predictive Analytics | Forecasting, ML insights |
-| 8 | User Behavior Analytics | UX research, product analytics |
-| 9 | Financial Dashboard | Finance, accounting |
-| 10 | Sales Intelligence Dashboard | Sales teams, CRM |
-
-</details>
-
-## Installation
-
-### Using Claude Marketplace (Claude Code)
-
-Install directly in Claude Code with two commands:
-
-```
-/plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill
-/plugin install ui-ux-pro-max@ui-ux-pro-max-skill
-```
-
-### Using CLI (Recommended)
+### 步骤1: 安装依赖
 
 ```bash
-# Install CLI globally
-npm install -g uipro-cli
+# 进入项目目录
+cd /home/meizu/Documents/my_agent_project/ui-ux-pro-max-skill
 
-# Go to your project
-cd /path/to/your/project
+# 安装Poetry（如果未安装）
+curl -sSL https://install.python-poetry.org | python3 -
 
-# Install for your AI assistant
-uipro init --ai claude      # Claude Code
-uipro init --ai cursor      # Cursor
-uipro init --ai windsurf    # Windsurf
-uipro init --ai antigravity # Antigravity
-uipro init --ai copilot     # GitHub Copilot
-uipro init --ai kiro        # Kiro
-uipro init --ai codex       # Codex CLI
-uipro init --ai qoder       # Qoder
-uipro init --ai roocode     # Roo Code
-uipro init --ai gemini      # Gemini CLI
-uipro init --ai trae        # Trae
-uipro init --ai opencode    # OpenCode
-uipro init --ai continue    # Continue
-uipro init --ai codebuddy   # CodeBuddy
-uipro init --ai droid       # Droid (Factory)
-uipro init --ai all         # All assistants
+# 添加Poetry到PATH
+export PATH="$HOME/.local/bin:$PATH"
+
+# 验证安装
+poetry --version
 ```
 
-### Other CLI Commands
+### 步骤2: 安装项目依赖
 
 ```bash
-uipro versions              # List available versions
-uipro update                # Update to latest version
-uipro init --offline        # Skip GitHub download, use bundled assets
+# 安装依赖
+poetry install
+
+# 激活虚拟环境
+source $(poetry env info --path)/bin/activate
 ```
 
-## Prerequisites
+### 步骤3: 配置环境变量
 
-Python 3.x is required for the search script.
+创建`.env`文件：
+
+```env
+# OpenAI API密钥
+OPENAI_API_KEY=sk-your-api-key-here
+
+# 可选：其他API密钥
+# ANTHROPIC_API_KEY=your-anthropic-key
+# COHERE_API_KEY=your-cohere-key
+```
+
+### 步骤4: 运行Agent
 
 ```bash
-# Check if Python is installed
-python3 --version
+# 使用Poetry运行
+poetry run python agent.py
 
-# macOS
-brew install python3
-
-# Ubuntu/Debian
-sudo apt update && sudo apt install python3
-
-# Windows
-winget install Python.Python.3.12
+# 或激活虚拟环境后运行
+source $(poetry env info --path)/bin/activate
+python agent.py
 ```
 
-## Usage
+---
 
-### Skill Mode (Auto-activate)
+## 🎯 使用示例
 
-**Supported:** Claude Code, Cursor, Windsurf, Antigravity, Codex CLI, Continue, Gemini CLI, OpenCode, Qoder, CodeBuddy, Droid (Factory)
+### 示例1: 生成设计系统
 
-The skill activates automatically when you request UI/UX work. Just chat naturally:
-
+**用户输入**:
 ```
-Build a landing page for my SaaS product
-```
-
-> **Trae**: Switch to **SOLO** mode first. The skill will activate for UI/UX requests.
-
-### Workflow Mode (Slash Command)
-
-**Supported:** Kiro, GitHub Copilot, Roo Code
-
-Use the slash command to invoke the skill:
-
-```
-/ui-ux-pro-max Build a landing page for my SaaS product
+帮我生成一个SaaS仪表盘的设计系统
 ```
 
-### Example Prompts
+**Agent行为**:
+1. 分析需求 → 产品类型: SaaS
+2. 调用 `ui_ux_pro_max_generate_design_system`
+3. 返回完整的设计系统
+
+**输出**:
+```markdown
+## Design System: SaaS Dashboard
+
+### Pattern
+- **Name:** Hero + Features + CTA
+- **Conversion Focus:** Trust-driven with clear value prop
+- **CTA Placement:** Above fold
+
+### Style
+- **Name:** Glassmorphism
+- **Type:** General
+- **Keywords:** Glassmorphism, soft shadows, blur, translucent
+- **Best For:** Modern dashboards, SaaS platforms
+
+### Colors
+| Role | Hex |
+|------|-----|
+| Primary | #2563EB |
+| Secondary | #3B82F6 |
+| CTA | #F97316 |
+| Background | #F8FAFC |
+| Text | #1E293B |
+
+### Typography
+- **Heading:** Inter
+- **Body:** Inter
+- **Mood:** Professional, clean, modern
+
+### Key Effects
+Soft shadows + Blur effects + Smooth transitions (200-250ms)
+
+### Avoid (Anti-patterns)
+- Excessive animation
+- Dark mode by default
+- Low contrast colors
+```
+
+---
+
+### 示例2: 搜索UI风格
+
+**用户输入**:
+```
+推荐一些适合美容SPA的UI风格
+```
+
+**Agent行为**:
+1. 分析需求 → 产品类型: Beauty/Spa Service
+2. 调用 `ui_ux_pro_max_search_domain`
+3. 域: style
+4. 返回风格推荐
+
+**输出**:
+```markdown
+## UI Pro Max Search Results
+
+**Domain:** style | **Query:** beauty spa wellness | **Found:** 3 results
+
+### Result 1
+- **Style Category:** Soft UI Evolution
+- **Type:** General
+- **Keywords:** Evolved soft UI, better contrast, modern aesthetics
+- **Best For:** Modern enterprise apps, SaaS platforms, health/wellness
+- **Performance:** ⚡ Excellent
+- **Accessibility:** ✓ WCAG AA
+
+### Result 2
+- **Style Category:** Minimalism & Swiss Style
+- **Type:** General
+- **Keywords:** Clean, simple, spacious, functional
+- **Best For:** Enterprise apps, dashboards
+- **Performance:** ⚡ Excellent
+- **Accessibility:** ✓ WCAG AAA
+
+### Result 3
+- **Style Category:** Neumorphism
+- **Type:** General
+- **Keywords:** Soft shadows, depth, tactile, organic
+- **Best For:** Wellness, beauty, lifestyle brands
+- **Performance:** Good
+- **Accessibility:** ✓ WCAG AA
+```
+
+---
+
+### 示例3: 搜索技术栈指南
+
+**用户输入**:
+```
+React Native表单验证的最佳实践是什么？
+```
+
+**Agent行为**:
+1. 分析需求 → 技术栈: React Native
+2. 主题: 表单验证
+3. 调用 `ui_ux_pro_max_search_stack_guidelines`
+4. 返回最佳实践
+
+**输出**:
+```markdown
+## UI Pro Max Stack Guidelines
+
+**Stack:** react-native | **Query:** form validation | **Found:** 3 results
+
+### Result 1
+- **Category:** Components
+- **Guideline:** Use functional components
+- **Description:** Hooks-based components are standard
+- **Do:** Functional components with hooks
+- **Don't:** Class components
+- **Code Good:** `const App = () => { }`
+- **Code Bad:** `class App extends Component`
+- **Severity:** Medium
+- **Docs URL:** https://reactnative.dev/docs/intro-react
+
+### Result 2
+- **Category:** Forms
+- **Guideline:** Use controlled components
+- **Description:** Use controlled components for form inputs
+- **Do:** `<TextInput value={value} onChange={onChange} />`
+- **Don't:** Uncontrolled components
+- **Code Good:** `const [value, setValue] = useState('')`
+- **Code Bad:** `<input type="text" />`
+- **Severity:** High
+- **Docs URL:** https://reactnative.dev/docs/forms
+
+### Result 3
+- **Category:** Validation
+- **Guideline:** Implement proper validation
+- **Description:** Validate form inputs properly
+- **Do:** Use validation libraries like Formik, React Hook Form
+- **Don't:** Manual validation without libraries
+- **Code Good:** `const schema = Yup.object().shape({...})`
+- **Code Bad:** Manual if/else validation
+- **Severity:** High
+- **Docs URL:** https://reactnative.dev/docs/forms
+```
+
+---
+
+## 🛠️ 项目结构
 
 ```
-Build a landing page for my SaaS product
-
-Create a dashboard for healthcare analytics
-
-Design a portfolio website with dark mode
-
-Make a mobile app UI for e-commerce
-
-Build a fintech banking app with dark theme
+ui-ux-pro-max-skill/
+├── pyproject.toml              # Poetry配置文件
+├── agent.py                   # LangChain Agent主文件
+├── src/ui-ux-pro-max/         # UI/UX Pro Max源代码
+│   ├── scripts/               # Python脚本
+│   │   ├── search.py          # 搜索函数
+│   │   ├── design_system.py    # 设计系统生成器
+│   │   └── core.py            # BM25搜索引擎核心
+│   └── data/                 # CSV数据库
+│       ├── products.csv        # 161种产品类型
+│       ├── styles.csv         # 67种UI风格
+│       ├── colors.csv         # 161种配色方案
+│       ├── typography.csv     # 57种字体配对
+│       ├── charts.csv         # 25种图表类型
+│       ├── landing.csv        # 24种落地页模式
+│       ├── ux-guidelines.csv  # 99条UX指南
+│       ├── ui-reasoning.csv   # 161条推理规则
+│       └── stacks/           # 技术栈指南
+│           ├── react-native.csv
+│           └── html-tailwind.csv
+└── .env.example               # 环境变量示例
 ```
 
-### How It Works
+---
 
-1. **You ask** - Request any UI/UX task (build, design, create, implement, review, fix, improve)
-2. **Design System Generated** - The AI automatically generates a complete design system using the reasoning engine
-3. **Smart recommendations** - Based on your product type and requirements, it finds the best matching styles, colors, and typography
-4. **Code generation** - Implements the UI with proper colors, fonts, spacing, and best practices
-5. **Pre-delivery checks** - Validates against common UI/UX anti-patterns
+## 🎨 核心工具
 
-### Supported Stacks
+### 1. GenerateDesignSystemTool
 
-The skill provides stack-specific guidelines for:
+**功能**: 生成完整的设计系统推荐
 
-| Category | Stacks |
-|----------|--------|
-| **Web (HTML)** | HTML + Tailwind (default) |
-| **React Ecosystem** | React, Next.js, shadcn/ui |
-| **Vue Ecosystem** | Vue, Nuxt.js, Nuxt UI |
-| **Other Web** | Svelte, Astro |
-| **iOS** | SwiftUI |
-| **Android** | Jetpack Compose |
-| **Cross-Platform** | React Native, Flutter |
+**参数**:
+- `query`: 搜索查询（必需）
+- `project_name`: 项目名称（可选）
+- `output_format`: 输出格式（markdown或json）
 
-Just mention your preferred stack in the prompt, or let it default to HTML + Tailwind.
+**输出**: 完整的设计系统，包括模式、风格、颜色、字体、效果和反模式
 
-## Design System Command (Advanced)
+---
 
-For direct access to the design system generator:
+### 2. SearchDomainTool
 
-> Note: If you installed via Continue, replace `.claude/skills/` with `.continue/skills/` in the commands below. For Droid (Factory), use `.factory/skills/`.
+**功能**: 搜索特定的UI/UX域
 
+**参数**:
+- `query`: 搜索查询（必需）
+- `domain`: 搜索域（可选，自动检测）
+- `max_results`: 最大结果数（默认3）
+- `output_format`: 输出格式（markdown或json）
+
+**可用域**:
+- `style`: UI风格
+- `color`: 配色方案
+- `typography`: 字体配对
+- `chart`: 图表类型
+- `landing`: 落地页模式
+- `product`: 产品类型
+- `ux`: UX指南
+- `google-fonts`: Google字体
+- `icons`: 图标库
+- `react`: React性能
+- `web`: 应用界面指南
+
+---
+
+### 3. SearchStackGuidelinesTool
+
+**功能**: 搜索技术栈特定的指南和最佳实践
+
+**参数**:
+- `query`: 搜索查询（必需）
+- `stack`: 技术栈（必需）
+- `max_results`: 最大结果数（默认3）
+- `output_format`: 输出格式（markdown或json）
+
+**可用技术栈**:
+- `html-tailwind`: HTML + Tailwind CSS
+- `react`: React
+- `nextjs`: Next.js
+- `vue`: Vue
+- `nuxtjs`: Nuxt.js
+- `nuxt-ui`: Nuxt UI
+- `svelte`: Svelte
+- `astro`: Astro
+- `swiftui`: SwiftUI
+- `react-native`: React Native
+- `flutter`: Flutter
+- `shadcn`: shadcn/ui
+- `jetpack-compose`: Jetpack Compose
+
+---
+
+## 🧪 高级用法
+
+### 自定义工具行为
+
+```python
+from langchain.tools import BaseTool
+from pydantic import BaseModel, Field
+
+class CustomDesignSystemTool(BaseTool):
+    """自定义设计系统工具"""
+    
+    name = "custom_generate_design_system"
+    description = "生成设计系统并添加自定义逻辑"
+    
+    def _run(self, query: str, project_name: str = "MyApp") -> str:
+        # 调用UI/UX Pro Max函数
+        result = generate_design_system(query, project_name, "json")
+        
+        # 添加自定义逻辑
+        design_system = json.loads(result)
+        design_system["custom_field"] = "自定义值"
+        design_system["timestamp"] = datetime.now().isoformat()
+        
+        return json.dumps(design_system, indent=2, ensure_ascii=False)
+```
+
+### 链式调用
+
+```python
+from langchain.chains import SequentialChain
+from langchain.prompts import PromptTemplate
+
+# 创建提示模板
+prompt1 = PromptTemplate(
+    input_variables=["query"],
+    template="分析以下设计需求：{query}"
+)
+
+prompt2 = PromptTemplate(
+    input_variables=["analysis"],
+    template="根据分析结果生成设计系统：{analysis}"
+)
+
+# 创建链
+chain = SequentialChain(
+    chains=[
+        LLMChain(llm=llm, prompt=prompt1),
+        LLMChain(llm=llm, prompt=prompt2)
+    ],
+    input_variables=["query"]
+)
+
+# 运行链
+result = chain.run(query="SaaS dashboard")
+```
+
+---
+
+## 🐛 故障排除
+
+### 问题1: Poetry命令未找到
+
+**解决方案**:
 ```bash
-# Generate design system with ASCII output
-python3 .claude/skills/ui-ux-pro-max/scripts/search.py "beauty spa wellness" --design-system -p "Serenity Spa"
+# 安装Poetry
+curl -sSL https://install.python-poetry.org | python3 -
 
-# Generate with Markdown output
-python3 .claude/skills/ui-ux-pro-max/scripts/search.py "fintech banking" --design-system -f markdown
+# 添加到PATH
+export PATH="$HOME/.local/bin:$PATH"
 
-# Domain-specific search
-python3 .claude/skills/ui-ux-pro-max/scripts/search.py "glassmorphism" --domain style
-python3 .claude/skills/ui-ux-pro-max/scripts/search.py "elegant serif" --domain typography
-python3 .claude/skills/ui-ux-pro-max/scripts/search.py "dashboard" --domain chart
-
-# Stack-specific guidelines
-python3 .claude/skills/ui-ux-pro-max/scripts/search.py "form validation" --stack react
-python3 .claude/skills/ui-ux-pro-max/scripts/search.py "responsive layout" --stack html-tailwind
+# 验证安装
+poetry --version
 ```
 
-### Persist Design System (Master + Overrides Pattern)
+### 问题2: 依赖安装失败
 
-Save your design system to files for **hierarchical retrieval across sessions**:
-
+**解决方案**:
 ```bash
-# Generate and persist to design-system/MASTER.md
-python3 .claude/skills/ui-ux-pro-max/scripts/search.py "SaaS dashboard" --design-system --persist -p "MyApp"
+# 清除Poetry缓存
+poetry cache clear pypi --all
 
-# Also create a page-specific override file
-python3 .claude/skills/ui-ux-pro-max/scripts/search.py "SaaS dashboard" --design-system --persist -p "MyApp" --page "dashboard"
+# 重新安装依赖
+poetry install --no-cache
 ```
 
-This creates a `design-system/` folder structure:
+### 问题3: UI/UX Pro Max函数导入错误
 
-```
-design-system/
-├── MASTER.md           # Global Source of Truth (colors, typography, spacing, components)
-└── pages/
-    └── dashboard.md    # Page-specific overrides (only deviations from Master)
-```
+**解决方案**:
+```python
+# 检查Python路径
+import sys
+print(sys.path)
 
-**How hierarchical retrieval works:**
-1. When building a specific page (e.g., "Checkout"), first check `design-system/pages/checkout.md`
-2. If the page file exists, its rules **override** the Master file
-3. If not, use `design-system/MASTER.md` exclusively
-
-**Context-aware retrieval prompt:**
-```
-I am building the [Page Name] page. Please read design-system/MASTER.md.
-Also check if design-system/pages/[page-name].md exists.
-If the page file exists, prioritize its rules.
-If not, use the Master rules exclusively.
-Now, generate the code...
+# 检查UI/UX Pro Max项目路径
+from pathlib import Path
+project_path = Path(__file__).parent / "src" / "ui-ux-pro-max"
+print(project_path)
 ```
 
-## Architecture & Contributing
+### 问题4: Agent无法调用工具
 
-### For Users
-
-The codebase has been restructured to use a **template-based generation system**. All platform-specific files (`.cursor/`, `.windsurf/`, `.kiro/`, `.factory/`, etc.) are now generated dynamically by the CLI.
-
-**Always use the CLI to install:**
-
-```bash
-npm install -g uipro-cli
-uipro init --ai <platform>
+**解决方案**:
+```python
+# 启用详细日志
+agent = initialize_agent(
+    tools=UI_UX_PRO_MAX_TOOLS,
+    llm=llm,
+    agent=AgentType.OPENAI_FUNCTIONS,
+    verbose=True,  # 启用详细日志
+    handle_parsing_errors=True,
+    max_iterations=5
+)
 ```
 
-This ensures you get the latest templates and correct file structure for your AI assistant.
+---
 
-### For Contributors
+## 📊 性能优化
 
-If you want to contribute to this project:
+### 1. 减少工具调用次数
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git
-cd ui-ux-pro-max-skill
+```python
+# 使用缓存
+from functools import lru_cache
 
-# 2. Understand the structure
-src/ui-ux-pro-max/           # Source of truth (data, scripts, templates)
-cli/                         # CLI installer (generates files from templates)
-.claude/                     # Local dev/test for Claude Code skill
-.factory/                    # Local dev/test for Droid (Factory) skill
-
-# 3. Make changes in src/ui-ux-pro-max/
-# - data/*.csv              → Database files
-# - scripts/*.py            → Search engine & design system
-# - templates/              → Platform-specific templates
-
-# 4. Sync to CLI and test locally
-cp -r src/ui-ux-pro-max/data/* cli/assets/data/
-cp -r src/ui-ux-pro-max/scripts/* cli/assets/scripts/
-cp -r src/ui-ux-pro-max/templates/* cli/assets/templates/
-
-# 5. Build and test CLI
-cd cli && bun run build
-node dist/index.js init --ai claude --offline  # Test in a temp folder
-
-# 6. Create PR (never push directly to main)
-git checkout -b feat/your-feature
-git commit -m "feat: description"
-git push -u origin feat/your-feature
-gh pr create
+@lru_cache(maxsize=128)
+def cached_generate_design_system(query, project_name, output_format):
+    return generate_design_system(query, project_name, output_format)
 ```
 
-See [CLAUDE.md](CLAUDE.md) for detailed development guidelines.
+### 2. 异步调用
 
-## Star History
+```python
+# 使用异步工具
+from langchain.agents import initialize_agent, Tool, AgentType
 
-[![Star History Chart](https://api.star-history.com/svg?repos=nextlevelbuilder/ui-ux-pro-max-skill&type=Date)](https://star-history.com/#nextlevelbuilder/ui-ux-pro-max-skill&Date)
+agent = initialize_agent(
+    tools=UI_UX_PRO_MAX_TOOLS,
+    llm=llm,
+    agent=AgentType.OPENAI_FUNCTIONS,
+    verbose=True,
+    max_execution_time=60,  # 设置最大执行时间
+)
+```
 
-## License
+---
 
-This project is licensed under the [MIT License](LICENSE).
+## 📚 相关文档
+
+- **[Poetry环境配置指南.md](./Poetry环境配置指南.md)** - Poetry安装和配置
+- **[LangChain集成指南.md](./LangChain集成指南.md)** - LangChain集成详细说明
+- **[数据文件参数说明文档.md](./数据文件参数说明文档.md)** - 数据文件参数说明
+- **[软件设计架构文档.md](./软件设计架构文档.md)** - 项目架构说明
+
+---
+
+## 📄 许可证
+
+MIT License - 详见 [LICENSE](LICENSE) 文件
+
+---
+
+**项目版本**: 0.1.0  
+**最后更新**: 2026-03-30  
+**维护者**: UI/UX Pro Max Team

@@ -1,0 +1,247 @@
+tools:
+  - identity:
+      name: "generate_design_system"
+      author: "UI/UX Pro Max Team"
+      label:
+        en_US: "Generate Design System"
+        zh_Hans: "生成设计系统"
+    parameters:
+      query:
+        type: "string"
+        required: true
+      project_name:
+        type: "string"
+        required: false
+      output_format:
+        type: "string"
+        enum: ["markdown", "json"]
+        default: "markdown"
+    executor:
+      type: "python"
+      config:
+        code: |
+          import sys
+          import json
+          from pathlib import Path
+          
+          # 读取设计系统
+          design_system_file = sys.argv[1] if len(sys.argv) > 1 else "design_system.json"
+          
+          with open(design_system_file, 'r', encoding='utf-8') as f:
+              design_system = json.load(f.read())
+          
+          # 输出设计系统
+          print(json.dumps(design_system, indent=2, ensure_ascii=False))
+
+  - identity:
+      name: "search_domain"
+      author: "UI/UX Pro Max Team"
+      label:
+        en_US: "Search Domain"
+        zh_Hans: "搜索域"
+    parameters:
+      query:
+        type: "string"
+        required: true
+      domain:
+        type: "string"
+        enum: ["style", "color", "typography", "chart", "landing", "product", "ux", "google-fonts", "icons", "react", "web"]
+      max_results:
+        type: "integer"
+        default: 3
+        minimum: 1
+        maximum: 10
+      output_format:
+        type: "string"
+        enum: ["markdown", "json"]
+        default: "markdown"
+    executor:
+      type: "python"
+      config:
+        code: |
+          import sys
+          import json
+          from pathlib import Path
+          
+          # 导入搜索函数
+          sys.path.insert(0, str(Path(__file__).parent.parent / "src" / "ui-ux-pro-max" / "scripts"))
+          from search import search
+          
+          # 搜索域
+          query = sys.argv[1]
+          domain = sys.argv[2] if len(sys.argv) > 2 else None
+          max_results = int(sys.argv[3]) if len(sys.argv) > 3 else 3
+          output_format = sys.argv[4] if len(sys.argv) > 4 else "markdown"
+          
+          result = search(query, domain, max_results)
+          
+          # 输出结果
+          print(json.dumps(result, indent=2, ensure_ascii=False))
+
+  - identity:
+      name: "search_stack_guidelines"
+      author: "UI/UX Pro Max Team"
+      label:
+        en_US: "Search Stack Guidelines"
+        zh_Hans: "搜索技术栈指南"
+    parameters:
+      query:
+        type: "string"
+        required: true
+      stack:
+        type: "string"
+        enum: ["html-tailwind", "react", "nextjs", "vue", "nuxtjs", "nuxt-ui", "svelte", "astro", "swiftui", "react-native", "flutter", "shadcn", "jetpack-compose"]
+      max_results:
+        type: "integer"
+        default: 3
+        minimum: 1
+        maximum: 10
+      output_format:
+        type: "string"
+        enum: ["markdown", "json"]
+        default: "markdown"
+    executor:
+      type: "python"
+      config:
+        code: |
+          import sys
+          import json
+          from pathlib import Path
+          
+          # 导入搜索函数
+          sys.path.insert(0, str(Path(__file__).parent.parent / "src" / "ui-ux-pro-max" / "scripts"))
+          from search import search_stack_guidelines
+          
+          # 搜索技术栈指南
+          query = sys.argv[1]
+          stack = sys.argv[2]
+          max_results = int(sys.argv[3]) if len(sys.argv) > 3 else 3
+          output_format = sys.argv[4] if len(sys.argv) > 4 else "markdown"
+          
+          result = search_stack_guidelines(query, stack, max_results)
+          
+          # 输出结果
+          print(json.dumps(result, indent=2, ensure_ascii=False))
+
+  - identity:
+      name: "generate_single_file_html"
+      author: "UI/UX Pro Max Team"
+      label:
+        en_US: "Generate Single File HTML"
+        zh_Hans: "生成单文件HTML"
+    parameters:
+      design_system_file:
+        type: "string"
+        required: true
+      project_name:
+        type: "string"
+        required: false
+    executor:
+      type: "python"
+      config:
+        code: |
+          import sys
+          import json
+          from pathlib import Path
+          
+          # 读取设计系统
+          with open(sys.argv[1], 'r', encoding='utf-8') as f:
+              design_system = json.load(f.read())
+          
+          # 提取设计系统信息
+          project_name = design_system.get("project_name", sys.argv[2] if len(sys.argv) > 2 else "MyApp")
+          pattern = design_system.get("pattern", {})
+          style = design_system.get("style", {})
+          colors = design_system.get("colors", {})
+          typography = design_system.get("typography", {})
+          
+          # 生成Single File HTML代码
+          html = f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{project_name}</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{project_name} - 专业设计">
+    <meta name="keywords" content="{project_name.lower()}, design, ui, ux">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="{typography.get('google_fonts_url', '')}" rel="stylesheet">
+    
+    <style>
+        /* Tailwind Config */
+        tailwind.config = {{
+            theme: {{
+                extend: {{
+                    colors: {{
+                        primary: '{colors.get('primary', '#2563EB')}',
+                        secondary: '{colors.get('secondary', '#3B82F6')}',
+                        cta: '{colors.get('cta', '#F97316')}',
+                        background: '{colors.get('background', '#F8FAFC')}',
+                        text: '{colors.get('text', '#1E293B')}',
+                    }},
+                    fontFamily: {{
+                        heading: ['{typography.get('heading', 'Inter')}', 'serif'],
+                        body: ['{typography.get('body', 'Inter')}', 'sans-serif'],
+                    }},
+                }},
+            }}
+        }}
+    </style>
+</head>
+<body class="bg-background text-text">
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-text mb-6">
+                {project_name}
+            </h1>
+            <p class="font-body text-lg sm:text-xl md:text-2xl text-text/80 mb-8 max-w-3xl mx-auto">
+                {pattern.get('description', '专业的解决方案')}
+            </p>
+            <button class="bg-cta text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-cta/90 transition-colors duration-200">
+                立即开始
+            </button>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="font-heading text-3xl sm:text-4xl font-bold text-text text-center mb-12">
+                核心功能
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-background rounded-xl p-8 shadow-lg">
+                    <h3 class="font-heading text-xl font-semibold text-primary mb-3">功能1</h3>
+                    <p class="font-body text-text/70">功能1的详细说明</p>
+                </div>
+                <div class="bg-background rounded-xl p-8 shadow-lg">
+                    <h3 class="font-heading text-xl font-semibold text-primary mb-3">功能2</h3>
+                    <p class="font-body text-text/70">功能2的详细说明</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-text py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="font-body text-white/80">
+                © 2024 {project_name}. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
+"""
+          
+          # 输出HTML代码
+          print(html)

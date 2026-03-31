@@ -1,0 +1,32 @@
+{
+  "identity": {
+    "author": "UI/UX Pro Max Team",
+    "name": "ui_ux_pro_max",
+    "label": {
+      "en_US": "UI/UX Pro Max",
+      "zh_Hans": "UI/UX Pro Max 设计智能"
+    },
+    "description": {
+      "en_US": "AI-powered design intelligence for building professional UI/UX. Includes 161 product types, 67 UI styles, 161 color palettes, 57 font pairings, 99 UX guidelines, and 25 chart types across 13 technology stacks.",
+      "zh_Hans": "AI驱动的UI/UX设计智能工具。包含161种产品类型、67种UI风格、161种配色方案、57种字体配对、99条UX指南和25种图表类型，支持13种技术栈。"
+    },
+    "icon": "🎨",
+    "tags": [
+      "design",
+      "ui",
+      "ux",
+      "frontend",
+      "web",
+      "mobile"
+    ]
+  },
+  "supported_model_types": [
+    "llm"
+  ],
+  "configurate_methods": [
+    "no-configuration"
+  ],
+  "provider_credential_schema": {
+    "type": "none"
+  }
+}

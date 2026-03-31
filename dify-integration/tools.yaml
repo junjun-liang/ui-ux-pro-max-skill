@@ -1,0 +1,283 @@
+{
+  "identity": {
+    "name": "ui_ux_pro_max",
+    "author": "UI/UX Pro Max Team",
+    "label": {
+      "en_US": "UI/UX Pro Max",
+      "zh_Hans": "UI/UX Pro Max 设计智能"
+    },
+    "description": {
+      "en_US": "AI-powered design intelligence for building professional UI/UX. Generate design systems, search UI styles, colors, typography, and UX guidelines.",
+      "zh_Hans": "AI驱动的UI/UX设计智能工具。生成设计系统、搜索UI风格、配色、字体和UX指南。"
+    },
+    "icon": "🎨",
+    "tags": [
+      "design",
+      "ui",
+      "ux",
+      "frontend",
+      "web",
+      "mobile"
+    ]
+  },
+  "tools": [
+    {
+      "identity": {
+        "name": "generate_design_system",
+        "author": "UI/UX Pro Max Team",
+        "label": {
+          "en_US": "Generate Design System",
+          "zh_Hans": "生成设计系统"
+        },
+        "description": {
+          "en_US": "Generate a complete design system recommendation including pattern, style, colors, typography, effects, and anti-patterns based on product type and requirements.",
+          "zh_Hans": "基于产品类型和需求生成完整的设计系统推荐，包括模式、风格、颜色、字体、效果和反模式。"
+        }
+      },
+      "parameters": {
+        "type": "object",
+        "required": [
+          "query"
+        ],
+        "properties": {
+          "query": {
+            "type": "string",
+            "label": {
+              "en_US": "Query",
+              "zh_Hans": "查询"
+            },
+            "description": {
+              "en_US": "Search query describing your product (e.g., 'SaaS dashboard', 'e-commerce luxury', 'beauty spa')",
+              "zh_Hans": "描述您产品的搜索查询（例如：'SaaS dashboard'、'e-commerce luxury'、'beauty spa'）"
+            }
+          },
+          "project_name": {
+            "type": "string",
+            "label": {
+              "en_US": "Project Name",
+              "zh_Hans": "项目名称"
+            },
+            "description": {
+              "en_US": "Optional project name for the design system (e.g., 'MyApp', 'Serenity Spa')",
+              "zh_Hans": "设计系统的可选项目名称（例如：'MyApp'、'Serenity Spa'）"
+            }
+          },
+          "output_format": {
+            "type": "string",
+            "enum": [
+              "markdown",
+              "json"
+            ],
+            "default": "markdown",
+            "label": {
+              "en_US": "Output Format",
+              "zh_Hans": "输出格式"
+            },
+            "description": {
+              "en_US": "Format of the output: 'markdown' for readable text, 'json' for structured data",
+              "zh_Hans": "输出格式：'markdown'用于可读文本，'json'用于结构化数据"
+            }
+          }
+        }
+      },
+      "returns": {
+        "type": "string",
+        "description": {
+          "en_US": "Complete design system recommendation in markdown or JSON format",
+          "zh_Hans": "markdown或JSON格式的完整设计系统推荐"
+        }
+      }
+    },
+    {
+      "identity": {
+        "name": "search_domain",
+        "author": "UI/UX Pro Max Team",
+        "label": {
+          "en_US": "Search Domain",
+          "zh_Hans": "搜索域"
+        },
+        "description": {
+          "en_US": "Search specific UI/UX domain for styles, colors, typography, charts, landing pages, UX guidelines, or Google Fonts.",
+          "zh_Hans": "搜索特定的UI/UX域，包括风格、颜色、字体、图表、落地页、UX指南或Google字体。"
+        }
+      },
+      "parameters": {
+        "type": "object",
+        "required": [
+          "query"
+        ],
+        "properties": {
+          "query": {
+            "type": "string",
+            "label": {
+              "en_US": "Query",
+              "zh_Hans": "查询"
+            },
+            "description": {
+              "en_US": "Search query (e.g., 'glassmorphism', 'elegant serif', 'dashboard chart')",
+              "zh_Hans": "搜索查询（例如：'glassmorphism'、'elegant serif'、'dashboard chart'）"
+            }
+          },
+          "domain": {
+            "type": "string",
+            "enum": [
+              "style",
+              "color",
+              "typography",
+              "chart",
+              "landing",
+              "product",
+              "ux",
+              "google-fonts",
+              "icons",
+              "react",
+              "web"
+            ],
+            "label": {
+              "en_US": "Domain",
+              "zh_Hans": "域"
+            },
+            "description": {
+              "en_US": "Domain to search. If not specified, will auto-detect from query.",
+              "zh_Hans": "要搜索的域。如果未指定，将自动从查询中检测。"
+            }
+          },
+          "max_results": {
+            "type": "integer",
+            "default": 3,
+            "minimum": 1,
+            "maximum": 10,
+            "label": {
+              "en_US": "Max Results",
+              "zh_Hans": "最大结果数"
+            },
+            "description": {
+              "en_US": "Maximum number of results to return (1-10)",
+              "zh_Hans": "返回的最大结果数（1-10）"
+            }
+          },
+          "output_format": {
+            "type": "string",
+            "enum": [
+              "markdown",
+              "json"
+            ],
+            "default": "markdown",
+            "label": {
+              "en_US": "Output Format",
+              "zh_Hans": "输出格式"
+            },
+            "description": {
+              "en_US": "Format of the output: 'markdown' for readable text, 'json' for structured data",
+              "zh_Hans": "输出格式：'markdown'用于可读文本，'json'用于结构化数据"
+            }
+          }
+        }
+      },
+      "returns": {
+        "type": "string",
+        "description": {
+          "en_US": "Search results in markdown or JSON format",
+          "zh_Hans": "markdown或JSON格式的搜索结果"
+        }
+      }
+    },
+    {
+      "identity": {
+        "name": "search_stack_guidelines",
+        "author": "UI/UX Pro Max Team",
+        "label": {
+          "en_US": "Search Stack Guidelines",
+          "zh_Hans": "搜索技术栈指南"
+        },
+        "description": {
+          "en_US": "Search stack-specific guidelines for React, Next.js, Vue, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui, and more.",
+          "zh_Hans": "搜索React、Next.js、Vue、Svelte、SwiftUI、React Native、Flutter、Tailwind、shadcn/ui等技术栈的特定指南。"
+        }
+      },
+      "parameters": {
+        "type": "object",
+        "required": [
+          "query",
+          "stack"
+        ],
+        "properties": {
+          "query": {
+            "type": "string",
+            "label": {
+              "en_US": "Query",
+              "zh_Hans": "查询"
+            },
+            "description": {
+              "en_US": "Search query (e.g., 'form validation', 'responsive layout', 'navigation')",
+              "zh_Hans": "搜索查询（例如：'form validation'、'responsive layout'、'navigation'）"
+            }
+          },
+          "stack": {
+            "type": "string",
+            "enum": [
+              "html-tailwind",
+              "react",
+              "nextjs",
+              "vue",
+              "nuxtjs",
+              "nuxt-ui",
+              "svelte",
+              "astro",
+              "swiftui",
+              "react-native",
+              "flutter",
+              "shadcn",
+              "jetpack-compose"
+            ],
+            "label": {
+              "en_US": "Stack",
+              "zh_Hans": "技术栈"
+            },
+            "description": {
+              "en_US": "Technology stack to search guidelines for",
+              "zh_Hans": "要搜索指南的技术栈"
+            }
+          },
+          "max_results": {
+            "type": "integer",
+            "default": 3,
+            "minimum": 1,
+            "maximum": 10,
+            "label": {
+              "en_US": "Max Results",
+              "zh_Hans": "最大结果数"
+            },
+            "description": {
+              "en_US": "Maximum number of results to return (1-10)",
+              "zh_Hans": "返回的最大结果数（1-10）"
+            }
+          },
+          "output_format": {
+            "type": "string",
+            "enum": [
+              "markdown",
+              "json"
+            ],
+            "default": "markdown",
+            "label": {
+              "en_US": "Output Format",
+              "zh_Hans": "输出格式"
+            },
+            "description": {
+              "en_US": "Format of the output: 'markdown' for readable text, 'json' for structured data",
+              "zh_Hans": "输出格式：'markdown'用于可读文本，'json'用于结构化数据"
+            }
+          }
+        }
+      },
+      "returns": {
+        "type": "string",
+        "description": {
+          "en_US": "Stack-specific guidelines in markdown or JSON format",
+          "zh_Hans": "markdown或JSON格式的技术栈特定指南"
+        }
+      }
+    }
+  ]
+}

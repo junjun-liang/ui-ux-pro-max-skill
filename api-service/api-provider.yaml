@@ -1,0 +1,16 @@
+identity:
+  name: "ui_ux_pro_max_api"
+  author: "UI/UX Pro Max Team"
+  label:
+    en_US: "UI/UX Pro Max API"
+    zh_Hans: "UI/UX Pro Max API"
+  description:
+    en_US: "HTTP API service for UI/UX Pro Max. Call API endpoints to use design intelligence without deploying to Dify."
+    zh_Hans: "UI/UX Pro Max的HTTP API服务。调用API端点使用设计智能，无需在Dify上部署。"
+  icon: "🌐"
+  tags: ["design", "ui", "ux", "api", "http", "rest"]
+
+supported_model_types: ["llm"]
+configurate_methods: ["no-configuration"]
+provider_credential_schema:
+  type: "none"

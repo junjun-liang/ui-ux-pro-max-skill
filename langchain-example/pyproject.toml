@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "ui-ux-pro-max-langchain"
+version = "0.1.0"
+description = "UI/UX Pro Max - LangChain集成示例项目"
+authors = ["UI/UX Pro Max Team"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+langchain = "^0.1.0"
+langchain-openai = "^0.1.0"
+langchain-community = "^0.1.0"
+pydantic = "^2.0.0"
+python-dotenv = "^1.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+pytest-asyncio = "^0.23.0"
+black = "^24.0.0"
+flake8 = "^7.0.0"
+mypy = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+dev = "python examples/basic_agent.py"
+test = "pytest"
+lint = "flake8 ."
+format = "black ."

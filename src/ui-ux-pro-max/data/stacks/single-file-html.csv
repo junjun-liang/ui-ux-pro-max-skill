@@ -1,0 +1,11 @@
+No,Category,Guideline,Description,Do,Don't,Code Good,Code Bad,Severity,Docs URL
+1,Structure,Use semantic HTML5 structure,Use proper HTML5 semantic elements (header, main, section, article),<header><main><h1>Title</h1></main><footer>,<div><div><h1>Title</h1></div><footer>,High
+2,Single File,Keep everything in one file,Avoid external CSS/JS files when possible,Use inline styles and scripts,<link rel="stylesheet" href="style.css">,<style>/* CSS here */</style>,High
+3,Tailwind CSS,Use Tailwind CDN for single file,Use Tailwind Play CDN,<script src="https://cdn.tailwindcss.com"></script>,High
+4,Performance,Minimize CSS size,Use Tailwind's @apply directive,Use @apply utilities (@screen, @layer),.btn { @apply hover:scale-105; },.btn:hover { @apply hover:scale-105; },High
+5,Accessibility,Ensure color contrast,Use Tailwind's color utilities (text-slate-900, bg-white),text-slate-900 bg-white,High
+6,Responsive,Use Tailwind's responsive utilities,Use @media queries in Tailwind,<div class="container mx-auto px-4">,<div class="grid grid-cols-1 md:grid-cols-2">,High
+7,SEO,Include meta tags,Use proper meta tags,<title>Page Title</title><meta name="description" content="Page description">,High
+8,Images,Optimize images,Use responsive images,Use lazy loading,<img src="image.jpg" class="w-full h-auto" loading="lazy">,High
+9,Forms,Use proper form attributes,Use required, autocomplete, type attributes,<input type="email" required autocomplete="email">,High
+10,Icons,Use SVG icons,Use inline SVG or Heroicons/Lucide,<svg class="w-6 h-6"><path d="..."/></svg>,High
