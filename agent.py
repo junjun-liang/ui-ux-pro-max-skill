@@ -3,14 +3,15 @@ UI/UX Pro Max - LangChain Agent
 直接在ui-ux-pro-max-skill项目中使用LangChain框架创建智能UI/UX设计助手
 """
 
-from langchain.agents import initialize_agent, Tool, AgentType
-from langchain_community.chat_models import ChatOpenAI
+from langchain.agents import initialize_agent, Tool, AgentType, create_react_agent, AgentExecutor
+from langchain_openai import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.tools import BaseTool
 from dotenv import load_dotenv
 import sys
 import json
+import os
 from pathlib import Path
 from typing import Optional
 
@@ -149,9 +150,10 @@ def main():
     
     # 创建LLM
     llm = ChatOpenAI(
-        model_name="gpt-4",
+        model="deepseek-chat",
+        base_url="https://api.deepseek.com",
+        api_key="sk-9471c8ab90c64ec8a16c8f8fb63e029f",
         temperature=0.7,
-        openai_api_key=api_key
     )
     
     # 创建记忆
@@ -161,6 +163,8 @@ def main():
     )
     
     # 创建提示模板
+    from langchain.agents import create_tool_calling_agent
+    
     prompt = ChatPromptTemplate.from_messages([
         ("system", """你是一个专业的UI/UX设计助手。你可以使用以下工具来帮助用户：
     
@@ -179,15 +183,22 @@ def main():
     请根据用户需求智能选择和调用工具。"""),
         MessagesPlaceholder(variable_name="chat_history", optional=True),
         ("human", "{input}"),
+        MessagesPlaceholder(variable_name="agent_scratchpad"),
     ])
     
     # 创建代理
-    agent = initialize_agent(
-        tools=UI_UX_PRO_MAX_TOOLS,
+    agent = create_tool_calling_agent(
         llm=llm,
-        agent=AgentType.OPENAI_FUNCTIONS,
-        verbose=True,
+        tools=UI_UX_PRO_MAX_TOOLS,
+        prompt=prompt
+    )
+    
+    # 创建代理执行器
+    agent_executor = AgentExecutor(
+        agent=agent,
+        tools=UI_UX_PRO_MAX_TOOLS,
         memory=memory,
+        verbose=True,
         handle_parsing_errors=True,
         max_iterations=5,
         early_stopping_method="generate"
@@ -223,9 +234,9 @@ def main():
             break
         
         try:
-            response = agent.run(user_input)
+            response = agent_executor.invoke({"input": user_input})
             print()
-            print(f"🤖 代理: {response}")
+            print(f"🤖 代理: {response['output']}")
             print()
         except Exception as e:
             print()
