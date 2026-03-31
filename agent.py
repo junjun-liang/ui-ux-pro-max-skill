@@ -26,12 +26,14 @@ def generate_design_system_tool(query: str, project_name: str = "MyApp", output_
     - project_name: "MyApp"
     - output_format: "markdown"
     """
+    print("invoke generate design system tool")
     result = generate_design_system(query, project_name, output_format)
+    print(result)
     return result
 
 
 @tool
-def search_domain_tool(query: str, domain: str = None, max_results: int = 3, output_format: str = "markdown") -> str:
+def search_domain_tool(query: str, domain: str = None, max_results: int = 3) -> str:
     """搜索特定的UI/UX域，包括风格、颜色、字体、图表、落地页、UX指南等。
     
     可用域：
@@ -51,9 +53,10 @@ def search_domain_tool(query: str, domain: str = None, max_results: int = 3, out
     - query: "glassmorphism"
     - domain: "style"
     - max_results: 5
-    - output_format: "markdown"
     """
-    result = search(query, domain, max_results, output_format)
+    print("invoke search domain tool")
+    result = search(query, domain, max_results)
+    print(result)
     return result
 
 
@@ -82,7 +85,9 @@ def search_stack_guidelines_tool(query: str, stack: str, max_results: int = 3, o
     - max_results: 3
     - output_format: "markdown"
     """
+    print("invoke search stack guidelines tool")
     result = search_stack(query, stack, max_results)
+    print(result)
     return result
 
 
