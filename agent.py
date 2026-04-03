@@ -110,7 +110,7 @@ def main():
     llm = ChatOpenAI(
         model="deepseek-chat",
         base_url="https://api.deepseek.com",
-        api_key="sk-9471c8ab90c64ec8a16c8f8fb63e029f",
+        api_key="sk-",
         temperature=0.7,
     )
     
